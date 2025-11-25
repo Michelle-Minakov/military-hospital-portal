@@ -1,0 +1,19 @@
+#news input,
+#news textarea {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+}
+
+#news button {
+  border-radius: 6px;
+}
+
+#newsList .card {
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#newsList .card-title {
+  font-weight: bold;
+  color: #0d6efd;
+}

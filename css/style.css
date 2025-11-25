@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  font-weight: bold;
+}
+
+#newsList .card {
+  margin-bottom: 15px;
+}
