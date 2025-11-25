@@ -2,7 +2,7 @@ function NewsWidget() {
   const [news, setNews] = React.useState([]);
   const [title, setTitle] = React.useState('');
   const [text, setText] = React.useState('');
-
+//https://michelle-minakov.github.io/kursova-hospital/
   const addNews = () => {
     // Перевірка авторизації
     const currentUser = localStorage.getItem("currentUser");

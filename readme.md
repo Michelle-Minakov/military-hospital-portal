@@ -27,8 +27,7 @@ kursova/
 └── README.md               # опис проєкту
 ## 🚀 Хостинг
 Проєкт розгорнуто на **GitHub Pages**.  
-Посилання: [https://mihailo.github.io/kursova-hospital/](https://mihailo.github.io/kursova-hospital/)
-
+Посилання: https://michelle-minakov.github.io/kursova-hospital/
 ## 📸 Функціонал
 - Слайдер із зображеннями шпиталю (Bootstrap Carousel)
 - Секція новин (форма + динамічне додавання через JQuery)
