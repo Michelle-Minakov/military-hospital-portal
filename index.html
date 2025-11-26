@@ -503,3 +503,30 @@ createApp({
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
+<!-- Кнопка -->
+<button type="button" class="btn btn-danger btn-lg shadow-sm rounded-pill my-3" 
+        data-bs-toggle="modal" data-bs-target="#confirmModal">
+  Хочу вищу оцінку
+</button>
+
+
+
+<!-- Модальне вікно -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Підтвердження</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="fs-4">Точно хочеш?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+        <!-- Ця кнопка закриває модальне вікно -->
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Так, хочу!</button>
+      </div>
+    </div>
+  </div>
+</div>
