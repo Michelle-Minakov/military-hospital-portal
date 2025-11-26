@@ -1,128 +1,505 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Військовий шпиталь</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
   <!-- JQuery + JQueryUI -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"/>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css"/>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
 </head>
-<body>
+<body class="bg-light">
+<!-- Bootstrap JS (обов'язково bundle!) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Navbar -->
+  <header class="navbar navbar-expand-lg navbar-dark bg-primary py-3 shadow-sm">
+  <div class="container-fluid d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between">
+    
+    <!-- Логотип + назва -->
+    <div class="d-flex align-items-center mb-2 mb-lg-0">
+      <img src="img/Emblema.jpg" alt="Емблема шпиталю" style="height: 58px; margin-right:12px;">
+      <div>
+        <h1 class="h4 mb-0 text-white fw-bold">Військовий шпиталь</h1>
+        <p class="navbar-subtitle mb-0">Підтримка, лікування та прозорий облік для військовослужбовців</p>
+      </div>
+    </div>
 
-  <!-- Header -->
-  <header class="bg-dark text-white text-center py-3 shadow-sm">
-    <h1>Військовий шпиталь</h1>
-    <nav>
-      <a href="#react-news" class="text-white mx-2">Новини</a>
-      <a href="#patients" class="text-white mx-2">Пацієнти</a>
+    <!-- Навігація -->
+    <nav class="navbar-nav flex-row gap-3">
+      <a class="nav-link text-white" href="#about">Про шпиталь</a>
+      <a class="nav-link text-white" href="#vue-news">Новини</a>
+      <a class="nav-link text-white" href="#partners">Партнери</a>
+      <a class="nav-link text-white" href="#instructions">Інструкції</a>
+      <a class="nav-link text-white" href="#docs">Довідки</a>
+      <a class="nav-link text-white" href="#contacts">Контакти</a>
     </nav>
-  </header>
 
-  <!-- Slider -->
-  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="img/slider1.jpg" class="d-block w-100" alt="Шпиталь">
-      </div>
-      <div class="carousel-item">
-        <img src="img/slider2.jpg" class="d-block w-100" alt="Медики">
-      </div>
+  </div>
+</header>
+
+<!-- Carousel -->
+<div id="hospitalCarousel" class="carousel slide my-5 shadow-sm" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/slider1.webp" class="d-block w-100 rounded" alt="Шпиталь" style="object-fit:cover; height:70vh;">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
+    <div class="carousel-item">
+      <img src="img/slider2.jpeg" class="d-block w-100 rounded" alt="Медики" style="object-fit:cover; height:70vh;">
+    </div>
+    
   </div>
 
-  <!-- News Section (React) -->
-  <section id="react-news" class="container my-5">
-    <div class="bg-light p-4 rounded shadow-sm">
-      <h2 class="text-center mb-4">📰 Новини (React)</h2>
-      <div id="react-root"></div>
-    </div>
-  </section>
+  <!-- Кнопки навігації -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Попередній</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Наступний</span>
+  </button>
 
-  <!-- Patients Section -->
-  <section id="patients" class="container my-5">
-    <div class="bg-light p-4 rounded shadow-sm">
-      <h2 class="text-center mb-4">🧑‍⚕️ Пацієнти</h2>
-      <form id="patientForm" class="row g-3 mb-4">
-        <div class="col-md-4">
-          <input type="text" id="patientName" class="form-control" placeholder="ПІБ пацієнта" required>
-        </div>
-        <div class="col-md-4">
-          <input type="text" id="patientDiagnosis" class="form-control" placeholder="Діагноз" required>
-        </div>
-        <div class="col-md-4">
-          <input type="text" id="admissionDate" class="form-control" placeholder="Дата надходження" required>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-success w-100 fw-bold">Додати пацієнта</button>
-        </div>
-      </form>
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover shadow-sm">
-          <thead class="table-dark text-center">
-            <tr>
-              <th>ПІБ</th>
-              <th>Діагноз</th>
-              <th>Дата надходження</th>
-            </tr>
-          </thead>
-          <tbody id="patientList"></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-  <section id="auth" class="container my-5">
-  <div class="bg-light p-4 rounded shadow-sm">
-    <h2 class="text-center mb-4">🔐 Авторизація та реєстрація</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <h5>Реєстрація</h5>
-        <form id="registerForm">
-          <input type="text" id="regUsername" class="form-control mb-2" placeholder="Ім’я користувача" required>
-          <input type="password" id="regPassword" class="form-control mb-2" placeholder="Пароль" required>
-          <button type="submit" class="btn btn-primary w-100">Зареєструватися</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h5>Авторизація</h5>
-        <form id="loginForm">
-          <input type="text" id="loginUsername" class="form-control mb-2" placeholder="Ім’я користувача" required>
-          <input type="password" id="loginPassword" class="form-control mb-2" placeholder="Пароль" required>
-          <button type="submit" class="btn btn-success w-100">Увійти</button>
-        </form>
-      </div>
-    </div>
+  <!-- Індикатори -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#hospitalCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#hospitalCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#hospitalCarousel" data-bs-slide-to="2"></button>
   </div>
-  
+</div>
+  <!-- About -->
+  <section id="about" class="container my-5">
+  <h2 class="text-center mb-4">Про шпиталь</h2>
+  <div class="bg-white p-4 rounded shadow-sm">
+    <p class="lead">
+      Військовий шпиталь — це сучасний медичний заклад, створений для підтримки та лікування військовослужбовців,
+      які виконують свій обов’язок перед державою. Його головна мета — забезпечити якісну медичну допомогу,
+      реабілітацію та психологічну підтримку тим, хто захищає країну.
+    </p>
+
+    <p>
+      Історія шпиталю бере початок із перших років незалежності України, коли виникла потреба у спеціалізованих
+      медичних установах для військових. З роками шпиталь розширювався, отримував нове обладнання та впроваджував
+      сучасні технології лікування. Сьогодні він є одним із ключових центрів військової медицини, де поєднуються
+      традиції та інновації.
+    </p>
+
+    <p>
+      Основні напрями роботи шпиталю включають:
+      <ul>
+        <li>Надання невідкладної та планової медичної допомоги військовослужбовцям.</li>
+        <li>Реабілітацію після поранень та операцій.</li>
+        <li>Психологічну підтримку та адаптацію після бойових дій.</li>
+        <li>Проведення профілактичних оглядів та вакцинацій.</li>
+        <li>Навчання та підготовку медичного персоналу.</li>
+      </ul>
+    </p>
+
+    <p>
+      Шпиталь активно співпрацює з волонтерськими організаціями, міжнародними партнерами та громадськими ініціативами.
+      Завдяки цьому пацієнти отримують не лише медичну допомогу, а й гуманітарну підтримку, що сприяє швидшому
+      відновленню та поверненню до служби.
+    </p>
+
+    <p>
+      Для пацієнтів створено комфортні умови перебування: сучасні палати, обладнані операційні, діагностичні кабінети
+      та зони відпочинку. Особлива увага приділяється прозорості обліку та дисципліні, що дозволяє ефективно
+      організовувати лікувальний процес.
+    </p>
+
+    <p class="fw-bold text-primary">
+      Військовий шпиталь — це не лише місце лікування, а й символ турботи держави про своїх захисників.
+      Тут кожен пацієнт отримує підтримку, увагу та професійний догляд.
+    </p>
+  </div>
+</section>
+<!-- Новини Vue -->
+ <section id="vue-news" class="container my-5">
+  <div id="app"></div>
 </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3 mt-5 shadow-sm">
-    <small>© 2025 Військовий шпиталь. Всі права захищені.</small>
-  </footer>
+<!-- Підключення Vue -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom JS -->
-  <script src="js/script.js"></script>
+<script>
+const { createApp } = Vue;
 
-  <!-- React + ReactDOM -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <!-- Babel для JSX -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <!-- React компонент -->
-  <script type="text/babel" src="js/react-widget.js"></script>
-</body>
-</html>
+createApp({
+  data() {
+    return {
+      filter: "Усі",
+      categories: ["Усі", "Оновлення", "Допомога", "Події", "Співпраця"],
+      news: [
+        { date: "25.11.2025", title: "Відкрито нове відділення", text: "Шпиталь розширив можливості прийому пацієнтів...", category: "Оновлення" },
+        { date: "20.11.2025", title: "Нове обладнання", text: "Закуплено сучасні апарати для діагностики...", category: "Оновлення" },
+        { date: "15.11.2025", title: "Волонтерська допомога", text: "До шпиталю доставлено гуманітарну підтримку...", category: "Допомога" },
+        { date: "10.11.2025", title: "Навчання персоналу", text: "Медики шпиталю пройшли тренінг...", category: "Події" },
+        { date: "05.11.2025", title: "Співпраця з міжнародними партнерами", text: "Підписано угоду про обмін досвідом...", category: "Співпраця" },
+        { date: "01.11.2025", title: "Психологічна підтримка", text: "Запроваджено програму реабілітації...", category: "Допомога" },
+        { date: "28.10.2025", title: "Медичний семінар", text: "У шпиталі проведено семінар з тактичної медицини...", category: "Події" },
+        { date: "22.10.2025", title: "Оновлення сайту", text: "Запущено нову версію порталу шпиталю...", category: "Оновлення" },
+        { date: "18.10.2025", title: "День донора", text: "Організовано акцію зі збору крові...", category: "Події" },
+        { date: "12.10.2025", title: "Відзнака шпиталю", text: "Шпиталь отримав нагороду за високі стандарти...", category: "Події" },
+        { date: "08.10.2025", title: "Нові спеціалісти", text: "До команди шпиталю приєдналися нові лікарі...", category: "Оновлення" },
+        { date: "01.10.2025", title: "Партнерство з університетом", text: "Підписано меморандум про співпрацю...", category: "Співпраця" }
+      ]
+    };
+  },
+  computed: {
+    filteredNews() {
+      if (this.filter === "Усі") return this.news;
+      return this.news.filter(n => n.category === this.filter);
+    }
+  },
+  template: `
+    <div class="bg-white p-4 rounded shadow-sm">
+      <h2 class="text-center mb-4">📰 Новини шпиталю (Vue)</h2>
+      
+      <!-- Фільтр -->
+      <div class="d-flex justify-content-center mb-4">
+        <button v-for="cat in categories"
+                :key="cat"
+                class="btn mx-2"
+                :class="filter === cat ? 'btn-primary' : 'btn-outline-primary'"
+                @click="filter = cat">
+          {{ cat }}
+        </button>
+      </div>
+
+      <!-- Список новин -->
+      <div class="row g-4">
+        <div v-for="(item, index) in filteredNews" :key="index" class="col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">[{{item.date}}] {{item.title}}</h5>
+              <p class="card-text">{{item.text}}</p>
+              <span class="badge bg-secondary">{{item.category}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+}).mount("#app");
+</script>
+
+
+  <!-- Партнери -->
+<section id="partners" class="container my-5">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h2 class="text-center mb-4">🤝 Партнери шпиталю</h2>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://uacrisis.org/uk/kejsy-yaki-nadyhayut-predstavleni-novi-veteranski-initsiatyvy" target="_blank">Ukrainian Crisis Media Center</a></h5>
+          <p>Програми реабілітації та соціалізації ветеранів, фестивалі та ініціативи.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://ocheretynska-gromada.gov.ua/news/1763357115/" target="_blank">Ветеранський спорт</a></h5>
+          <p>Фізична та психологічна адаптація ветеранів через спортивні програми.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://forbes.ua/company/transportniy-legion-yak-naybilshi-logistichni-kompanii-ukraini-stvorili-help-ukraine-center-07042022-5321" target="_blank">Help Ukraine Center</a></h5>
+          <p>Об’єднання логістичних компаній для доставки гуманітарної допомоги.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://novaposhta.ua" target="_blank">Нова Пошта</a></h5>
+          <p>Доставка гуманітарних вантажів та підтримка шпиталів.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://rozetka.com.ua" target="_blank">Rozetka</a></h5>
+          <p>Участь у гуманітарних ініціативах, підтримка логістики та складів.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="border rounded p-3 h-100 shadow-sm">
+          <h5><a href="https://fozzy.ua" target="_blank">Fozzy Group</a></h5>
+          <p>Партнерство у Help Ukraine Center, забезпечення складів та логістики.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!------------------------------------- Інструкції ----------------------------------------------------->
+<section id="instructions" class="container my-5">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h2 class="text-center mb-4">📘 Інструкції для персоналу</h2>
+    <div class="accordion" id="instructionsAccordion">
+
+      <!-- Прийом пацієнтів -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="instr1">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+            Прийом пацієнтів
+          </button>
+        </h2>
+        <div id="collapse1" class="accordion-collapse collapse" data-bs-parent="#instructionsAccordion">
+          <div class="accordion-body">
+            • Перевірити документи пацієнта.<br>
+            • Заповнити форму надходження.<br>
+            • Призначити відповідального лікаря.<br>
+            • Повідомити адміністрацію про новий запис.
+          </div>
+        </div>
+      </div>
+
+      <!-- Взаємодія з волонтерами -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="instr2">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+            Взаємодія з волонтерами
+          </button>
+        </h2>
+        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#instructionsAccordion">
+          <div class="accordion-body">
+            • Узгодити потреби шпиталю.<br>
+            • Оформити акт прийому допомоги.<br>
+            • Забезпечити прозорий облік.<br>
+            • Подякувати публічно на сайті або в соцмережах.
+          </div>
+        </div>
+      </div>
+
+      <!-- Надзвичайні ситуації -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="instr3">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+            Надзвичайні ситуації
+          </button>
+        </h2>
+        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#instructionsAccordion">
+          <div class="accordion-body">
+            • Активувати протокол безпеки.<br>
+            • Повідомити чергового лікаря.<br>
+            • Евакуювати пацієнтів за схемою.<br>
+            • Зв’язатися з відповідними службами.
+          </div>
+        </div>
+      </div>
+
+      <!-- Ведення обліку -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="instr4">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+            Ведення обліку
+          </button>
+        </h2>
+        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#instructionsAccordion">
+          <div class="accordion-body">
+            • Записи вести щоденно.<br>
+            • Зберігати дані в електронному архіві.<br>
+            • Дотримуватись конфіденційності.<br>
+            • Перевіряти правильність внесених даних.
+          </div>
+        </div>
+      </div>
+      <!-- Для пацієнтів -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="instr5">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+      🛡️ Для пацієнтів
+    </button>
+  </h2>
+  <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#instructionsAccordion">
+    <div class="accordion-body">
+      <p><strong>Шановні пацієнти!</strong></p>
+      <p>
+        Ми прагнемо забезпечити комфортні умови перебування та професійне ставлення до кожного.
+        Якщо ви <span style="color:red; font-weight:bold;">помітили недотримання правил, прояви зневажливого ставлення чи некоректну поведінку</span> з боку персоналу або інших осіб — будь ласка, повідомте про це керівництво шпиталю.
+      </p>
+      <p>
+        Ваші звернення допомагають підтримувати високі стандарти медичної допомоги та створювати атмосферу довіри й поваги.
+      </p>
+      <p>
+        Контактні номери для повідомлень:<br>
+        📞 <strong>Адміністрація шпиталю:</strong> +38 (0472) 12‑34‑56<br>
+        📞 <strong>Черговий лікар:</strong> +38 (0472) 65‑43‑21
+      </p>
+      <p>
+        Усі звернення розглядаються конфіденційно та оперативно.
+      </p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+ <!-- Docs -->
+<section id="docs" class="container my-5">
+  <div class="bg-white p-4 rounded shadow-sm">
+    <h2 class="text-center mb-4">📑 Довідки</h2>
+
+    <div class="accordion" id="docsAccordion">
+
+      <!-- Довідка 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc1">
+            Інструкція з безпеки
+          </button>
+        </h2>
+        <div id="doc1" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            У шпиталі діють правила безпеки: дотримання санітарних норм, використання захисних засобів,
+            виконання інструкцій персоналу та негайне повідомлення про небезпечні ситуації.
+          </div>
+        </div>
+      </div>
+
+      <!-- Довідка 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc2">
+            Правила перебування у шпиталі
+          </button>
+        </h2>
+        <div id="doc2" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            Пацієнти повинні дотримуватись розпорядку дня, поважати персонал та інших пацієнтів,
+            не залишати палати без дозволу, а також дотримуватись правил внутрішнього розпорядку шпиталю.
+          </div>
+        </div>
+      </div>
+
+      <!-- Довідка 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc3">
+            Порядок отримання довідки
+          </button>
+        </h2>
+        <div id="doc3" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            Для отримання довідки пацієнт має звернутися до реєстратури, надати необхідні документи
+            та заповнити відповідну форму. Довідка видається протягом одного робочого дня.
+          </div>
+        </div>
+      </div>
+
+      <!-- Довідка 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc4">
+            Контакти адміністрації
+          </button>
+        </h2>
+        <div id="doc4" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            Адміністрація шпиталю доступна для консультацій у робочі години. 
+            Ви можете звернутися за телефоном +380 (97) 005‑70‑57 або написати на email: info@hospital.mil.
+          </div>
+        </div>
+      </div>
+
+      <!-- Довідка 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc5">
+            Психологічна підтримка
+          </button>
+        </h2>
+        <div id="doc5" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            У шпиталі працюють кваліфіковані психологи, які допомагають військовослужбовцям адаптуватися після бойових дій,
+            подолати стрес та отримати необхідну підтримку.
+          </div>
+        </div>
+      </div>
+
+      <!-- Довідка 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#doc6">
+            Волонтерська допомога
+          </button>
+        </h2>
+        <div id="doc6" class="accordion-collapse collapse" data-bs-parent="#docsAccordion">
+          <div class="accordion-body">
+            Волонтери регулярно надають шпиталю гуманітарну підтримку: медикаменти, харчування, засоби гігієни.
+            Пацієнти можуть отримати додаткову допомогу завдяки співпраці з громадськими організаціями.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+ <!-- Contacts -->
+<section id="contacts" class="container my-5">
+  <h2 class="text-center mb-4">Контакти</h2>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="bg-white p-4 rounded shadow-sm h-100">
+        <h4>📞 Зв'яжіться з нами</h4>
+        <p><strong>Адреса:</strong> вул. Липківського, 30, Київ</p>
+        <p><strong>Телефон:</strong> +380 (97) 005‑70‑57</p>
+        <p><strong>Email:</strong> info@hospital.mil</p>
+        <p><strong>Години роботи:</strong> Пн–Нд 08:00–18:00</p>
+        
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="rounded shadow-sm overflow-hidden">
+        <iframe src="https://maps.google.com/maps?q=вул.%20Липківського,%2030,%20Київ&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+        </iframe> 
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-3 mt-5 shadow-sm">
+  <small>© 2025 Військовий шпиталь. Всі права захищені.</small>
+</footer>
+
+<!-- Кнопка "До гори" -->
+<button id="backToTop" class="btn btn-primary">
+  <i class="bi bi-arrow-up-circle"></i>
+</button>
+
+<script>
+  
+  const backToTopBtn = document.getElementById("backToTop");
+
+  // показуємо кнопку при прокрутці вниз
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  });
+
+  // плавна прокрутка до верху
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>

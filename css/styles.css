@@ -17,3 +17,132 @@
   font-weight: bold;
   color: #0d6efd;
 }
+#hero {
+  min-height: 40vh; /* було 80vh — тепер компактніше */
+  background-image: url('img/hero-hospital.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  border-radius: 50%;
+  padding: 12px 14px;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+#backToTop:hover {
+  background-color: #0d6efd;
+  opacity: 0.9;
+}
+body {
+  background-color: #f8f9fa; /* світло-сірий фон */
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  color: #333;
+}
+
+h2, h3 {
+  font-weight: 600;
+  color: #004080; /* глибокий синій акцент */
+}
+
+.navbar {
+  background: linear-gradient(90deg, #004080, #0073e6);
+}
+.navbar .nav-link {
+  color: #fff !important;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+.navbar .nav-link:hover {
+  color: #ffeb3b !important; /* жовтий акцент при наведенні */
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.btn-primary {
+  background-color: #0073e6;
+  border: none;
+  border-radius: 8px;
+}
+.btn-primary:hover {
+  background-color: #005bb5;
+}
+
+.btn-outline-primary {
+  border-radius: 8px;
+}
+
+.accordion-button {
+  background-color: #e9f3fb;
+  font-weight: 500;
+}
+.accordion-button:not(.collapsed) {
+  color: #004080;
+  background-color: #d0e7fa;
+}
+
+footer {
+  background-color: #004080;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+.navbar {
+  background: linear-gradient(90deg, #003366, #0055aa);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.navbar h1 {
+  font-size: 1.6rem;
+}
+.navbar p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: 0.3s;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffeb3b !important;
+
+}
+.navbar-subtitle {
+  color: #ffffff; /* яскраво-жовтий */
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+body {
+  background: linear-gradient(135deg, #d9eafc 0%, #b3d9ff 50%, #f4f6f9 100%);
+}

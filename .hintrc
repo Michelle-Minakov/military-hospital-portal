@@ -8,6 +8,15 @@
       {
         "button-name": "off"
       }
-    ]
+    ],
+    "button-type": "off",
+    "no-inline-styles": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "frame-title": "off"
+      }
+    ],
+    "disown-opener": "off"
   }
 }
